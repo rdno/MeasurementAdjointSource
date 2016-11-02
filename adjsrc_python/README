@@ -1,3 +1,38 @@
 (1) comment out line 882-885 in /src/pyadjoint/adjoint_source_types/multitaper_misfit.py to not 
 taper the adjoint source in time domain like in line 618-621 (set fac = 1.0) in original 
 ma_sub.f90
+
+
+CHANGES
+Ridvan Orsvuran, 2016
+
+(1) instead of using forcing measure_adj to use ntaper-3. I disabled
+the taper rejection by pyadjoint using the setting low_bias=False.
+
+Patch used in pyadjoint can be seen in the file pyadjoint.patch.
+
+(2) pytomo3d no longer has postprocess_adjsrc metho. So It has commented out.
+
+(3) frequency range and mt_nw values are changed. However, they have
+no effect on the result.
+
+(4) I added a couple of sac file outputs to pyadjoint and measure_adj.
+
+   - data.sac & syn.sac: These are the windowed and tapered
+     datas. There is slight difference between the implementation of
+     "cos_p10" taper. It can be seen plotting the data versus
+     "../adjsrc_fortran/OUTPUT_FILES/AFI.IU.BHZ.01.mtm.obs.sac" and
+     "../adjsrc_fortran/OUTPUT_FILES/AFI.IU.BHZ.01.mtm.syn.sac". Using
+     the fortran version in python did not change the result of the
+     final comparison.
+
+   - measure_adj calculates cc_shift as -4. pyadjoint calculates it -5.
+   This can be seen by plotting data.recon.sac (shifted obsd data) vs
+   "../adjsrc_fortran/OUTPUT_FILES/AFI.IU.BHZ.01.mtm.recon_dat_cc.sac"
+
+
+(5) changing window borders of pyadjoint from [[816, 1067]] to [[816, 1066]]
+results in match between measure_adj and pyadjoint. Even though their
+window sizes are different.
+
+

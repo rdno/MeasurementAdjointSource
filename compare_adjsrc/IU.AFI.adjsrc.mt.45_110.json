@@ -1,0 +1,9 @@
+{
+    "IU.AFI..LHZ":[
+        {
+            "ref":"../adjsrc_fortran/OUTPUT_FILES/AFI.IU.BHZ.iker07.adj",
+            "syn":"../adjsrc_python/IU.AFI..LHZ.mt.dt.adj",
+            "tag":"multitaper travel time adjoint source"
+        }
+    ]
+}

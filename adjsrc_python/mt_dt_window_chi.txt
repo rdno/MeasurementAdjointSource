@@ -1,3 +1,1 @@
-IU.KBL..BHR.mt.dt.adj 5.077280
-IU.KBL..BHT.mt.dt.adj 0.981688
-IU.KBL..BHZ.mt.dt.adj 5.836978
+IU.AFI..LHZ.mt.dt.adj 14.653968

@@ -1,0 +1,6 @@
+{
+    "IU.AFI..LHZ":{
+            "obsd":"../adjsrc_fortran/sac/AFI.IU.LHZ.obs.0.sac",
+            "synt":"../adjsrc_fortran/sac/AFI.IU.MXZ.sem.0.sac"
+        }
+}

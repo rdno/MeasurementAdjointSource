@@ -1,3 +1,1 @@
-IU.KBL..BHR.mt.am.adj 0.028057
-IU.KBL..BHT.mt.am.adj 0.025509
-IU.KBL..BHZ.mt.am.adj 0.069142
+IU.AFI..LHZ.mt.am.adj 0.000429

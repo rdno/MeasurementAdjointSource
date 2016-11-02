@@ -1,0 +1,24 @@
+{
+  "IU.AFI":{
+    "IU.AFI..LHZ":[
+       {
+        "absolute_endtime":"2009-12-19T13:20:07.320000Z",
+        "absolute_starttime":"2009-12-19T13:15:56.320000Z",
+        "cc_shift_in_samples":-4,
+        "cc_shift_in_seconds":-4.0,
+        "center_index":941,
+        "channel_id":"IU.AFI.00.BHZ",
+        "dlnA":0.070532508194446564,
+        "dt":1.0,
+        "left_index":816,
+        "max_cc_value":0.8917937874794006,
+        "min_period":45.0,
+        "relative_endtime":1067.0,
+        "relative_starttime":816.0,
+        "right_index":1067,
+        "time_of_first_sample":"2009-12-19T13:02:20.320000Z",
+        "window_weight":4.9742275701628786
+      }
+    ]
+  }
+}

@@ -189,6 +189,7 @@ contains
     if (OUTPUT_MEASUREMENT_FILES) then
        call dwsac1(trim(filename)//'.recon_syn_cc.sac',syn_dtw_cc,nlen,tstart,dt)
        call dwsac1(trim(filename)//'.recon_syn_cc_dt.sac',syn_dtw_cc_dt,nlen,tstart,dt)
+       call dwsac1(trim(filename)//'.recon_dat_cc.sac',dat_dtw_cc,nlen,tstart,dt)
     endif
 
     ! compute the estimated uncertainty for the cross-correlation measurment
@@ -297,7 +298,7 @@ contains
       !=== Youyi Ruan 11/05/2015: use tapers with high eigen values for better
       !band concentration
       !ntaper = int(NPI * 2.0)
-      ntaper = floor(NPI * 2.0 - 3)
+      ntaper = floor(NPI * 2.0)
     else
       ntaper = 1
     endif
@@ -771,7 +772,7 @@ contains
       ! added by Youyi Ruan for high eigen value tapers only for better frequency
       ! concentration 
       !===
-      ntaper = int(NPI * 2.0) - 3
+      ntaper = int(NPI * 2.0)
       allocate(tas(NPT,ntaper))
       allocate(syn_dtw_ho_all(NPT,ntaper))
       allocate(syn_vtw_ho_all(NPT,ntaper))
@@ -1181,7 +1182,7 @@ contains
     ! number of tapers (slepian tapers, type = 1)
     !=== Youyi Ruan 10/25/2015: use tapers with high eigen values (> 0.96)   
     !ntaper = int(NPI * 2.0)
-    ntaper = int(NPI * 2.0) - 3 
+    ntaper = int(NPI * 2.0)
     if( ntaper > 10 ) ntaper = 10
     if( ntaper < 1 ) ntaper = 10
     if( use_trace .and. fstart >= fend - ntaper*df ) then
