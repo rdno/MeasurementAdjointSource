@@ -661,9 +661,9 @@ contains
     time_window(:) = 0.
     ipwr_t = 10
     do i = 1,nlen
-      fac = 1.                                           ! boxcar window
+      !fac = 1.                                           ! boxcar window
       !fac = 1 - sfac2*((i-1) - dble(nlen1)/2.0)**2       ! welch window
-      !fac = 1. - cos(PI*(i-1)/(nlen-1))**ipwr_t          ! cosine window
+      fac = 1. - cos(PI*(i-1)/(nlen-1))**ipwr_t          ! cosine window
       time_window(i) = fac
     enddo
 
