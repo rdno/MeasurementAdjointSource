@@ -1,5 +1,5 @@
 diff --git a/src/pyadjoint/adjoint_source_types/multitaper_misfit.py b/src/pyadjoint/adjoint_source_types/multitaper_misfit.py
-index ea7705c..67781f5 100644
+index 5f0b8bd..1a029c3 100644
 --- a/src/pyadjoint/adjoint_source_types/multitaper_misfit.py
 +++ b/src/pyadjoint/adjoint_source_types/multitaper_misfit.py
 @@ -1,5 +1,5 @@
@@ -9,7 +9,7 @@ index ea7705c..67781f5 100644
  """
  Multitaper based phase and amplitude misfit and adjoint source.
  
-@@ -762,6 +762,15 @@ def calculate_adjoint_source(observed, synthetic, config, window,
+@@ -781,6 +781,15 @@ def calculate_adjoint_source(observed, synthetic, config, window,
          cc_tshift = cc_shift * deltat
          cc_dlna = 0.5 * np.log(sum(d**2) / sum(s**2))
  
@@ -25,7 +25,7 @@ index ea7705c..67781f5 100644
          # uncertainty estimate based on cross-correlations
          sigma_dt_cc = 1.0
          sigma_dlna_cc = 1.0
-@@ -790,6 +799,12 @@ def calculate_adjoint_source(observed, synthetic, config, window,
+@@ -809,6 +818,12 @@ def calculate_adjoint_source(observed, synthetic, config, window,
          else:
              raise Exception
  
@@ -38,27 +38,3 @@ index ea7705c..67781f5 100644
          # ===
          # Make decision wihich method to use: c.c. or multi-taper
          # always starts from multi-taper, if it doesn't work then
-@@ -817,7 +832,7 @@ def calculate_adjoint_source(observed, synthetic, config, window,
-             ntaper = config.num_taper
- 
-             # generate discrete prolate slepian sequences
--            tapers = dpss_windows(nlen, nw, ntaper)[0].T
-+            tapers = dpss_windows(nlen, nw, ntaper, low_bias=False)[0].T
- 
-             # normalization
-             tapers = tapers * np.sqrt(nlen)
-@@ -879,10 +894,10 @@ def calculate_adjoint_source(observed, synthetic, config, window,
-                        sigma_dlna_cc)
- 
-         # Taper signals following the SAC taper command
--        window_taper(fp_t[0:nlen], taper_percentage=config.taper_percentage,
--                     taper_type=config.taper_type)
--        window_taper(fq_t[0:nlen], taper_percentage=config.taper_percentage,
--                     taper_type=config.taper_type)
-+        #window_taper(fp_t[1:nlen], taper_percentage=config.taper_percentage,
-+        #             taper_type=config.taper_type)
-+        #window_taper(fq_t[0:nlen], taper_percentage=config.taper_percentage,
-+        #             taper_type=config.taper_type)
- 
-         # return to original location before windowing
-         # initialization
